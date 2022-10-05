@@ -8,8 +8,8 @@
             "type": "rdbg",
             "name": "Debug current file with rdbg",
             "request": "launch",
-            "script": "${workspaceFolder}/tsv_to_yml.rb",
-            "args": ["data/survey.tsv"],
+            "script": "${workspaceFolder}/test.rb",
+            "args": ["data/survey.yml"],
             "askParameters": true
         },
         {
