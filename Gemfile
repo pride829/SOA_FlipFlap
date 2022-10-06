@@ -2,6 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'debug'
-gem 'minitest'
-gem 'minitest-rg'
+# Testing
+gem 'minitest', '~> 5.16'
+gem 'minitest-rg', '~> 5.2'
+
+# Debugging
+gem 'debug', '~> 1.6'
