@@ -29,8 +29,9 @@ module TsvBuddy
   # returns: String in TSV format
   def to_tsv
     columns = @data[0].keys
-    s = columns.join(TAB)
+    s = columns.join(TAB) + NEWLINE
     @data.each do |splitted_row|
+      
       s += splitted_row.values.join(TAB) + NEWLINE
     end
     s

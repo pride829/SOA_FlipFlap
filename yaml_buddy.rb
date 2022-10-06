@@ -7,6 +7,8 @@ NEWLINE = "\n"
 
 module YamlBuddy
   COLUMNS_NAME = %w[date student_id languages best_language app_experience tech_experience]
+  require 'yaml'
+
 
   def row_strip_space_and_quotes(row)
     row.strip.delete_prefix("'").delete_suffix("'")
@@ -21,12 +23,12 @@ module YamlBuddy
     yml.each do |row|
       if row[0..1] == '- '
         @data.push([])
-        @data[-1].push(row[2..].split(':', 2).map { |s| (s) })
+        @data[-1].push(row[2..].split(':', 2).map { |s| row_strip_space_and_quotes(s) })
       elsif row[0..3] != '    '
-        @data[-1].push(row[2..].split(':', 2).map { |s| (s) })
+        @data[-1].push(row[2..].split(':', 2).map { |s| row_strip_space_and_quotes(s) })
       else
-        #@data[-1][-1][1] += ' ' + row_strip_space_and_quotes(row)
-        @data[-1][-1][1] += row
+        @data[-1][-1][1] += ' ' + row_strip_space_and_quotes(row)
+
       end
     end
 
@@ -34,18 +36,6 @@ module YamlBuddy
   end
 
   def to_yaml
-    s = '---'
-    s += NEWLINE
-    @data.each do |d|
-      d.each_with_index do |hash, index|
-        s += if index == 0
-               '- '
-             else
-               '  '
-             end
-        s += "#{hash[0]}: #{hash[1]}#{NEWLINE}"
-      end
-    end
-    s
+    @data.to_yaml
   end
 end
