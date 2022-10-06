@@ -9,7 +9,7 @@
             "name": "Debug current file with rdbg",
             "request": "launch",
             "script": "${workspaceFolder}/test.rb",
-            "args": ["data/survey.yml"],
+            "args": ["data/survey.yml", "data/survey.yml"],
             "askParameters": true
         },
         {
