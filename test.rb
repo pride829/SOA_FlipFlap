@@ -15,5 +15,13 @@ flipper1.take_tsv(tsv)
 flipper2 = FlipFlap.new
 flipper2.take_yaml(yaml)
 
-File.write(yml_filename, flipper.to_yaml)
+
+yaml2 = flipper2.to_yaml()
+#File.write(yml_filename, flipper.to_yaml)
+
+
+File.open("yaml1", 'w') { |f| f.write(yaml)}
+File.open("yaml2", 'w') { |f| f.write(yaml2)}
+
+nil
 
