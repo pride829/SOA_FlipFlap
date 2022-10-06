@@ -8,3 +8,4 @@ gem 'minitest-rg', '~> 5.2'
 
 # Debugging
 gem 'debug', '~> 1.6'
+gem 'flog', '~> 4.6'
